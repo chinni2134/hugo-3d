@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>HUGO — AI-SRE Control Runtime</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- FIX: Three.js module resolution -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- =========================================
+       LOADING SCREEN
+  ========================================== -->
+
+  <div id="loading">
+
+    <div class="loader-core">
+
+      <div class="loader-ring ring-1"></div>
+      <div class="loader-ring ring-2"></div>
+      <div class="loader-ring ring-3"></div>
+
+      <div class="loader-logo">
+        H
+      </div>
+
+    </div>
+
+    <div class="loading-title">
+      HUGO
+    </div>
+
+    <div class="loading-subtitle">
+      INITIALIZING AI-SRE RUNTIME
+    </div>
+
+    <div class="loading-bar">
+      <div id="loading-progress"></div>
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       THREE.JS CANVAS
+  ========================================== -->
+
+  <canvas id="scene"></canvas>
+
+
+  <!-- =========================================
+       TOP NAVIGATION
+  ========================================== -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-symbol">
+        H
+      </div>
+
+      <div>
+        <div class="brand-name">
+          HUGO
+        </div>
+
+        <div class="brand-subtitle">
+          AI-SRE CONTROL RUNTIME
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="runtime-status">
+
+      <span class="status-dot"></span>
+
+      SYSTEM OPERATIONAL
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       LEFT CONTROL PANEL
+  ========================================== -->
+
+  <aside class="left-panel">
+
+    <div class="panel-title">
+      CONTROL CENTER
+    </div>
+
+
+    <div class="system-card">
+
+      <div class="card-label">
+        RUNTIME
+      </div>
+
+      <div class="card-value">
+        HUGO CORE
+      </div>
+
+      <div class="card-status">
+        ● ONLINE
+      </div>
+
+    </div>
+
+
+    <button
+      id="incidentBtn"
+      class="control-button"
+    >
+      <span>⚡</span>
+      SIMULATE INCIDENT
+    </button>
+
+
+    <button
+      id="approveBtn"
+      class="control-button approve"
+    >
+      <span>✓</span>
+      APPROVE ACTION
+    </button>
+
+
+    <div class="flow-box">
+
+      <div class="flow-title">
+        OPERATIONAL FLOW
+      </div>
+
+      <div class="flow-step">
+        <span>01</span>
+        TELEMETRY
+      </div>
+
+      <div class="flow-step">
+        <span>02</span>
+        OBSERVABILITY
+      </div>
+
+      <div class="flow-step">
+        <span>03</span>
+        RAG
+      </div>
+
+      <div class="flow-step">
+        <span>04</span>
+        AI REASONING
+      </div>
+
+      <div class="flow-step">
+        <span>05</span>
+        XAI
+      </div>
+
+      <div class="flow-step">
+        <span>06</span>
+        POLICY
+      </div>
+
+      <div class="flow-step">
+        <span>07</span>
+        HUMAN APPROVAL
+      </div>
+
+      <div class="flow-step">
+        <span>08</span>
+        MCP ACTION
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================================
+       RIGHT INSPECTOR
+  ========================================== -->
+
+  <aside
+    id="inspector"
+    class="right-panel"
+  >
+
+    <div class="panel-title">
+      NODE INSPECTOR
+    </div>
+
+    <div id="inspector-content">
+
+      <div class="empty-inspector">
+
+        SELECT A NODE
+
+        <span>
+          Click any infrastructure component
+        </span>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================================
+       INCIDENT ALERT
+  ========================================== -->
+
+  <div
+    id="incident-alert"
+    class="incident-alert"
+  >
+
+    <div class="alert-icon">
+      !
+    </div>
+
+    <div>
+
+      <div class="alert-title">
+        INCIDENT DETECTED
+      </div>
+
+      <div
+        id="incident-message"
+        class="alert-message"
+      >
+        Infrastructure anomaly detected.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       BOTTOM INFORMATION BAR
+  ========================================== -->
+
+  <div class="bottom-bar">
+
+    <div>
+      DRAG
+      <span>ROTATE</span>
+    </div>
+
+    <div>
+      SCROLL
+      <span>ZOOM</span>
+    </div>
+
+    <div>
+      CLICK
+      <span>INSPECT</span>
+    </div>
+
+    <div class="architecture-label">
+      TELEMETRY → AI → POLICY → MCP → INFRASTRUCTURE
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
+  <script
+    type="module"
+    src="app.js"
+  ></script>
+
+</body>
+</html>
